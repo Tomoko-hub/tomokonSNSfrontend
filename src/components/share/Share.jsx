@@ -16,28 +16,28 @@ export default function Share() {
                     className='shareProfileImage' 
                 />
                 <input type="text" className='shareInput' placeholder='What are you doing now?' />
-                <hr className='shareHr' />
             </div>
+            <hr className='shareHr' />
             <div className="shareButtons">
                 <div className="shareOptions">
                     <div className='shareOption'>
-                        <AddPhotoAlternateIcon className='shareIcon' />
+                        <AddPhotoAlternateIcon className='shareIcon' htmlColor='blue' />
                         <span className='shareOptionText'>Pictures</span>
                     </div>
                     <div className='shareOption'>
-                        <GifIcon className='shareIcon' />
+                        <GifIcon className='shareIcon' htmlColor='hotpink' />
                         <span className='shareOptionText'>GIF</span>
                     </div>
                     <div className='shareOption'>
-                        <FaceIcon className='shareIcon' />
+                        <FaceIcon className='shareIcon' htmlColor='green' />
                         <span className='shareOptionText'>Feelings</span>
                     </div>
                     <div className='shareOption'>
-                        <AnalyticsIcon />
+                        <AnalyticsIcon className='shareIcon' htmlColor='red' />
                         <span className='shareOptionText'>Vote</span>
                     </div>
-                    <button className='shareButton'>Post</button>
                 </div>
+                <button className='shareButton'>Post</button>
             </div>
         </div>
     </div>

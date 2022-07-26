@@ -2,13 +2,16 @@ import { Search } from '@mui/icons-material';
 import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "./Topbar.css";
 
 export default function Topbar() {
   return (
     <div className='topbarContainer'>
         <div className="topbarLeft">
-            <span className='logo'>SNS</span>
+            <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+                <span className='logo'>SNS</span>
+            </Link>
         </div>
         <div className="topbarCenter">
             <div className='searchbar'>

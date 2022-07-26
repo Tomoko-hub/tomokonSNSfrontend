@@ -1,7 +1,7 @@
 import React from 'react'
-import "./Login.css"
+import "./Register.css"
 
-export default function Login() {
+export default function Register() {
   return (
     <div className='login'>
         <div className='loginWrapper'>
@@ -15,10 +15,15 @@ export default function Login() {
             </div>
             <div className="loginRight">
                     <div className="loginBox">
-                        <p className='loginMessage'>Login</p>
+                        <p className='loginMessage'>Sign up here</p>
                         <input 
                             type="text" 
-                            placeholder='Email'
+                            placeholder='Username'
+                            className="loginInput"
+                         />
+                        <input 
+                            type="text"
+                            placeholder='Email' 
                             className="loginInput"
                          />
                         <input 
@@ -26,12 +31,16 @@ export default function Login() {
                             placeholder='password' 
                             className="loginInput"
                          />
+                        <input 
+                            type="text"
+                            placeholder='Conform password' 
+                            className="loginInput"
+                         />
                         <button className="loginButton">
-                        Login
+                        Sign up
                         </button>
-                        <span className="loginForegetPasswordText">Forget password?</span>
                         <button className="loginRegisterButton">
-                        Create Account
+                        Login
                         </button>
                     </div>
             </div>

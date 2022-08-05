@@ -32,8 +32,8 @@ export default function Post({ post }) {
             <div className="postWrapper">
                 <div className="postTop">
                     <div className="postTopLeft">
-                        <img 
-                            src={ user.profilePicture } 
+                        <img   // public\assets\person\noAvatar.png
+                            src={ user.profilePicture || PUBLIC_FOLDER + "/person/noAvatar.png" } 
                             alt=""
                             className='postProfileImg'
                         />
@@ -47,7 +47,7 @@ export default function Post({ post }) {
                 <div className="postCenter">
                     <span className="postText">{post.desc}</span>
                     <img 
-                        src= { PUBLIC_FOLDER + post.photo} 
+                        src= { PUBLIC_FOLDER + post.img} 
                         alt=""
                         className='postImg'
                     />

@@ -13,7 +13,7 @@ export default function Timeline() {
 
     const fetchPosts = async ()=> {
 
-      const response = await axios.get("/posts/timeline/62b1915a20520ce4135116c1");
+      const response = await axios.get("/posts/timeline/62af6bb0acd2115799660bbe");
       //console.log(response);
       setPosts(response.data);
     };

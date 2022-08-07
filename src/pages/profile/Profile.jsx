@@ -35,7 +35,7 @@ export default function Profile() {
                             </div>
                     </div>
                     <div className="profileRightBottom">
-                        <Timeline />
+                        <Timeline username="Tomoko Uehara" />
                         <Rightbar profile />
                     </div>
                 </div>

@@ -3,11 +3,12 @@ import "./Post.css"
 import MoreVert from '@mui/icons-material/MoreVert';
 //import { Users } from "../../dummyData"
 import axios from 'axios';
+import {format} from 'timeago.js';
 
 export default function Post({ post }) {
     
     const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
-    const [ like, setLike ] = useState(post.like);
+    const [ like, setLike ] = useState(post.likes.legth);
     const [ isLiked, setIsLiked ] = useState(false);
     const [ user, setUser ] = useState({});
 
@@ -38,7 +39,7 @@ export default function Post({ post }) {
                             className='postProfileImg'
                         />
                         <span className="postUserName">{user.username}</span>
-                        <span className="postDate">{post.date}</span>
+                        <span className="postDate">{format(post.createdAt)}</span>
                     </div>
                     <div className="postTopRight">
                         <MoreVert />

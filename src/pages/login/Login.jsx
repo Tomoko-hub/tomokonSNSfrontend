@@ -1,7 +1,19 @@
 import React from 'react'
+import { useRef } from 'react'
 import "./Login.css"
 
 export default function Login() {
+
+  const email = useRef();
+  const password = useRef();
+  console.log(email);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(email.current.value);
+    console.log(password.current.value);
+  };
+
   return (
     <div className='login'>
         <div className='loginWrapper'>
@@ -14,13 +26,17 @@ export default function Login() {
                 </div>
             </div>
             <div className="loginRight">
-                    <div className="loginBox">
+                    <form 
+                        className="loginBox"
+                        onSubmit={(event)=> handleSubmit(event)}
+                    >
                         <p className='loginMessage'>Login</p>
                         <input 
                             type="email" 
                             placeholder='Email'
                             className="loginInput"
                             required
+                            ref={email}
                          />
                         <input 
                             type="password"
@@ -28,15 +44,18 @@ export default function Login() {
                             className="loginInput"
                             required
                             minLength="8"
+                            ref={password}
                          />
-                        <button className="loginButton">
+                        <button 
+                            className="loginButton"
+                        >
                         Login
                         </button>
                         <span className="loginForegetPasswordText">Forget password?</span>
                         <button className="loginRegisterButton">
                         Create Account
                         </button>
-                    </div>
+                    </form>
             </div>
         </div>
     </div>

@@ -17,14 +17,17 @@ export default function Login() {
                     <div className="loginBox">
                         <p className='loginMessage'>Login</p>
                         <input 
-                            type="text" 
+                            type="email" 
                             placeholder='Email'
                             className="loginInput"
+                            required
                          />
                         <input 
-                            type="text"
+                            type="password"
                             placeholder='password' 
                             className="loginInput"
+                            required
+                            minLength="8"
                          />
                         <button className="loginButton">
                         Login

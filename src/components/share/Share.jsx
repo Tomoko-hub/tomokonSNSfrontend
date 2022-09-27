@@ -6,6 +6,7 @@ import AnalyticsIcon from '@mui/icons-material/Analytics';
 import "./Share.css"
 
 export default function Share() {
+    
     const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
 
   return (

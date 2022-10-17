@@ -1,15 +1,29 @@
-//Login Actions
+import { useReducer } from "react";
+import { createContext } from "react";
+import  AuthReducer  from "./AuthReducer";
 
-export const LoginStart = (user)=> ({
-    type: "LOGIN_START",
-});
+// User's state (initial state)
+const initialState = {
+    user: null,
+    isFetching: false,
+    error: false
+}
 
-export const LoginSuccess = (user)=> ({
-    type: "LOGIN_SUCCESS",
-    payload: user,
-});
+// Control state in global
 
-export const LoginError = (error)=> ({
-    type: "LOGIN_ERROR",
-    payload: error
-});
+export const AuthContext = createContext(initialState);
+
+export const AuthContextProvider = ({children}) => {
+    const [ state, dispatch ] = useReducer(AuthReducer, initialState);
+    return(
+        <AuthContext.Provider 
+            value={{
+            user: state.user,
+            isFetching: state.isFetching,
+            error: state.error,
+            dispatch,
+        }}>
+            {children}
+        </AuthContext.Provider>
+    )
+}

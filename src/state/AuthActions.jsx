@@ -1,11 +1,15 @@
-import React from 'react'
+//Login Actions
 
-const AuthActions = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+export const LoginStart = (user)=> ({
+    type: "LOGIN_START",
+});
 
-export default AuthActions
+export const LoginSuccess = (user)=> ({
+    type: "LOGIN_SUCCESS",
+    payload: user,
+});
+
+export const LoginError = (error)=> ({
+    type: "LOGIN_ERROR",
+    payload: error
+});

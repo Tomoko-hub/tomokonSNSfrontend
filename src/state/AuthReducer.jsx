@@ -1,11 +1,29 @@
-import React from 'react'
+const AuthReducer = (state, action) => {
+    switch(action.type) {
+        case "LOGIN_START" : 
+            return {
+                user: null,
+                isFetching: true,
+                error: false,
+            };
+    
+        case "LOGIN_SUCCESS" : 
+            return {
+                user: action.payload,
+                isFetching: false,
+                error: false,
+            };
+    
+        case "LOGIN_ERROR" : 
+            return {
+                user: null,
+                isFetching: false,
+                error: action.payload,
+            };
 
-const AuthReducer = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+        default:
+            return state;
+    }
+};
 
-export default AuthReducer
+export default AuthReducer;

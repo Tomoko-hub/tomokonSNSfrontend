@@ -4,7 +4,18 @@ import  AuthReducer  from "./AuthReducer";
 
 // User's state (initial state)
 const initialState = {
-    user: null,
+    //user: null,
+    user: {
+        _id: "62af6bb0acd2115799660bbe",
+        username: "tomoko",
+        email:"tomotomoco@hotmail.com",
+        password:"abcdef123",
+        profilePicture: "",
+        coverPicture: "",
+        followers: [],
+        followings: [],
+        isAdmin:false
+    },
     isFetching: false,
     error: false
 }

@@ -3,8 +3,8 @@ import ChatIcon from '@mui/icons-material/Chat';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../state/AuthContexst';
 import "./Topbar.css";
+import { AuthContext } from '../../state/AuthContexst';
 
 export default function Topbar() {
 

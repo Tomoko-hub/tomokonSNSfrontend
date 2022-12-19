@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import "./Post.css"
 import MoreVert from '@mui/icons-material/MoreVert';
 //import { Users } from "../../dummyData"
 import axios from 'axios';
 import {format} from 'timeago.js';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../state/AuthContexst';
 
 export default function Post({ post }) {
     
@@ -13,10 +14,12 @@ export default function Post({ post }) {
     const [ isLiked, setIsLiked ] = useState(false);
     const [ user, setUser ] = useState({});
 
+    const { user:currentUser } = useContext(AuthContext);
+
   useEffect(() => {
 
     const fetchUser = async ()=> {
-      const response = await axios.get(`users?userId=${post.userId}`);
+      const response = await axios.get(`/users?userId=${post.userId}`);
       console.log(response);
       setUser(response.data);
     };
@@ -24,7 +27,14 @@ export default function Post({ post }) {
   }, [post.userId]);
 
 
-    const handleLike = () => {
+    const handleLike = async () => {
+
+        try {
+            // Like API
+            await axios.put(`/posts/${post._id}/like`, {userId: currentUser._id});
+        } catch(err) {
+            console.log(err);
+        }
         setLike( isLiked ? post.like -1 : like +1 );
         setIsLiked(!isLiked)
     };
@@ -36,7 +46,11 @@ export default function Post({ post }) {
                     <div className="postTopLeft">
                         <Link to={`/profile/${user.username}`}>
                             <img   // public\assets\person\noAvatar.png
-                                src={ user.profilePicture || PUBLIC_FOLDER + "/person/noAvatar.png" } 
+                                src={
+                                    user.profilePicture 
+                                    ? PUBLIC_FOLDER + user.profilePicture
+                                    : PUBLIC_FOLDER + "/person/noAvatar.png"
+                                } 
                                 alt=""
                                 className='postProfileImg'
                             />

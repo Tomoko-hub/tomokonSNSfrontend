@@ -7,10 +7,10 @@ const initialState = {
     //user: null,
     user: {
         _id: "62af6bb0acd2115799660bbe",
-        username: "tomoko",
+        username: "tomomann",
         email:"tomotomoco@hotmail.com",
         password:"abcdef123",
-        profilePicture: "",
+        profilePicture: "/person/1.jpeg",
         coverPicture: "",
         followers: [],
         followings: [],

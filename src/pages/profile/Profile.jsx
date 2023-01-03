@@ -7,7 +7,7 @@ import Timeline from '../../components/timeline/Timeline'
 import Topbar from '../../components/topbar/Topbar'
 
 import axios from 'axios'
-import  {useParams } from 'react-router-dom'
+import  {useParams} from 'react-router-dom'
 
 export default function Profile() {
 
@@ -20,7 +20,7 @@ export default function Profile() {
     useEffect(() => {
 
         const fetchUser = async ()=> {
-        const response = await axios.get(`/users/?username=${username}`);
+        const response = await axios.get(`/users?username=${username}`);
         console.log(response);
         setUser(response.data);
         };
@@ -39,17 +39,17 @@ export default function Profile() {
                                 src= { user.coverPicture || PUBLIC_FOLDER + "/post/3.jpeg" }
                                 alt=""
                                 className='profilecoverImg'
-                            />
+                             />
                             <img 
-                                src={ user.profilePicture || PUBLIC_FOLDER + "/person/noAvatar.png" }
+                                src={ PUBLIC_FOLDER + user.profilePicture || PUBLIC_FOLDER + "/person/noAvatar.png" }
                                 alt=""
                                 className='profileUserImg'
-                            />
-                            </div>
-                            <div className="profileInfo">
-                                <h4 className='profileInfoUsername'>{user.username}</h4>
-                                <span className='profileInfoDesc'>{user.description}</span>
-                            </div>
+                             />
+                        </div>
+                        <div className="profileInfo">
+                            <h4 className='profileInfoUsername'>{user.username}</h4>
+                            <span className='profileInfoDesc'>{user.desc}</span>
+                        </div>
                     </div>
                     <div className="profileRightBottom">
                         <Timeline username={username} />

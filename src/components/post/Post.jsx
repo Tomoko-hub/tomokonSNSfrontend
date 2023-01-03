@@ -17,7 +17,6 @@ export default function Post({ post }) {
     const { user:currentUser } = useContext(AuthContext);
 
   useEffect(() => {
-
     const fetchUser = async ()=> {
       const response = await axios.get(`/users?userId=${post.userId}`);
       console.log(response);
@@ -35,7 +34,7 @@ export default function Post({ post }) {
         } catch(err) {
             console.log(err);
         }
-        setLike( isLiked ? post.like -1 : like +1 );
+        setLike( isLiked ? like -1 : like +1 );
         setIsLiked(!isLiked)
     };
 

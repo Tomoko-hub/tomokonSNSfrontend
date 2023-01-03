@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import GifIcon from '@mui/icons-material/GifBox';
 import FaceIcon from '@mui/icons-material/Face';
@@ -12,6 +12,9 @@ export default function Share() {
     const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
     const {user} = useContext(AuthContext)
     const desc = useRef();
+
+    const [ file, setFile ] = useState(null);
+    console.log(file);
 
     const handleSubmit = async (event)=> {
         event.preventDefault();
@@ -54,10 +57,17 @@ export default function Share() {
                   onSubmit={(event)=> handleSubmit(event)}
             >
                 <div className="shareOptions">
-                    <div className='shareOption'>
+                    <label className='shareOption' htmlFor='file'>
                         <AddPhotoAlternateIcon className='shareIcon' htmlColor='blue' />
                         <span className='shareOptionText'>Pictures</span>
-                    </div>
+                        <input 
+                          type="file"
+                          id="file"
+                          accept='.png, .jpeg, .jpg'
+                          style={{display: "none"}}
+                          onChange={(event) => setFile(event.target.files[0])}
+                        ></input>
+                    </label>
                     <div className='shareOption'>
                         <GifIcon className='shareIcon' htmlColor='hotpink' />
                         <span className='shareOptionText'>GIF</span>
